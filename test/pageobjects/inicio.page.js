@@ -1,4 +1,4 @@
-const { $ } = require('@wdio/globals')
+const { $, expect } = require('@wdio/globals')
 const Page = require('./page');
 
 /**
@@ -8,27 +8,29 @@ class InicioPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get buttonDeBusqueda () {
-        return $('#nav-search-icon');
+    get menuDeCategorias () {
+        return $('//a[contains(text(),"Categorías")]/parent::li');
     }
 
-    get inputBarraDeBusqueda () {
-        return $('#gn-search-input');
+    get menuDeVehiculosInternoEnCategorias () {
+        return $('//a[text()="Vehículos"]');
     }
 
-    get linkATenisJordan () {
-        return $('[href="https://www.nike.com/mx/t/tenis-air-jordan-1-mid-ntkGmF/DQ8426-067"]');
+    get menuDeSupermercadoInternoEnCategorias () {
+        return $('[href="https://www.mercadolibre.com.mx/ofertas/supermercado#menu=categories"]');
     }
 
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async buscarArticulosJordan () {
-        await this.buttonDeBusqueda.click();
-        await this.inputBarraDeBusqueda.click();
-        await this.inputBarraDeBusqueda.setValue('jordan');
-        await this.linkATenisJordan.click();
+    async desplegarMenuDeCategorias () {
+        await this.menuDeCategorias.moveTo();
+        await browser.pause(2000);
+    }
+
+    async esperar(milisegundos) {
+        
     }
 
     /**

@@ -9,6 +9,6 @@ module.exports = class Page {
     * Opens a sub page of the page
     */
     open () {
-        return browser.url(`https://www.nike.com/mx/`)
+        return browser.url(`https://www.mercadolibre.com.mx/`)
     }
 }

@@ -2,11 +2,12 @@ const { expect } = require('@wdio/globals')
 const InicioPage = require('../pageobjects/inicio.page')
 const ProductoJordanPage = require('../pageobjects/producto.page')
 
-describe('Buscar cosas en la tienda de Nike', () => {
-    it('Buscar productos Jordan', async () => {
+describe('Navegando en mercado libre', () => {
+    it('Verificar el menu de categorias', async () => {
         await InicioPage.open()
-        await InicioPage.buscarArticulosJordan()
-        await ProductoJordanPage.verificarArticuloJordan('Air Jordan 1 Mid')
+        await InicioPage.desplegarMenuDeCategorias()
+        await expect(await InicioPage.menuDeVehiculosInternoEnCategorias).toHaveText('Vehículos')
+        await expect(await InicioPage.menuDeSupermercadoInternoEnCategorias).toHaveText('Supermercado')
     })
 })
 
