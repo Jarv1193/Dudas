@@ -1,4 +1,4 @@
-const { $, expect } = require('@wdio/globals')
+const { $, expect, browser } = require('@wdio/globals')
 const Page = require('./page');
 
 /**
@@ -27,10 +27,6 @@ class InicioPage extends Page {
     async desplegarMenuDeCategorias () {
         await this.menuDeCategorias.moveTo();
         await browser.pause(2000);
-    }
-
-    async esperar(milisegundos) {
-        
     }
 
     /**
